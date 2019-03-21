@@ -1,0 +1,12 @@
+//자료수집
+- http://www.mohw.go.kr/react/index.jsp //보건복지부
+- http://www.cdc.go.kr/CDC/main.jsp //질병관리본부
+
+
+//어플리케이션
+- https://developer.android.com/studio/?hl=ko //안드로이드 스튜디오
+- https://www.youtube.com/watch?v=oj6DI3PvAr0// 동빈나
+
+
+//사진
+- http://www.airkorea.or.kr/index // 에어코리아(한국 지도사진 참조) 
