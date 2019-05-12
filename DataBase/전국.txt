@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>전국 시도별 천식 위험지수 알림 서비스</title>
+    </head>
+    <body>
+        <h1>전국 시도별 천식 위험지수 알림 서비스</h1>
+        
+        <p>지역</p>
+        <ul>    
+            <li>강원</li>
+            <li>경기</li>
+            <li>서울</li>
+            <li>인천</li>
+            <li>충북</li>
+            <li>대전</li>
+            <li>전북</li>
+            <li>광주</li>
+            <li>전남</li>
+            <li>충남</li>
+            <li>경북</li>
+            <li>대구</li>
+            <li>경남</li>
+            <li>울산</li>
+            <li>부산</li>
+            <li>제주도</li>
+        </ul>
+        <img src="images/map.png">
+    </body>
+</html>
