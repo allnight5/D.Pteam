@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-cache"/>
+  <meta http-equiv="Expires" content="0"/>
+  <meta http-equiv="Pragma" content="no-cache"/>
+      <link href="../static/css/common.css" rel="stylesheet" type="text/css">
+ <title>천식 예방 알림 서비스</title>
+
+<!--전체 글씨 틀 설정 -->
+ <style>
+  *{
+    margin: 0; padding: 0;
+    font-family: '맑은 고딕', 'Malgun Gothic', Gothic, sans-serif;
+   }
+  a { text-decoration: none; }
+  li { list-style: none; }
+ </style>
+<!--분홍색 타이틀 만들기 -->
+ <style>
+  #main-header { padding: 40px 50px;
+               background: pink;
+                background-size: 100% 100%;}
+  .master-title {
+   font-size: 30px;
+   color: #FFFFFF;
+  }
+  .master-title a {
+   color : #FFFFFF;
+  }
+ </style>
+
+ <!--아래 줄하나 -->
+ <style>
+  #main-navigation {
+   border-bottom: 1px solid #C8C8C8;
+   height: 15px;
+  }
+ </style>
+
+ <!-- 파싱 뉴스 내용 넣을려고 만들었다 -->
+ <style>
+  #content { overflow: hidden; }
+  #main-section {
+   float: left;
+   width: 650px;
+  }
+  #main-aside {
+   float: right;
+   width: 200px;
+  }
+ </style>
+
+ <style>
+  article {
+   padding: 0 10px 20px 10px;
+   border-bottom: 1px solid  #C8C8C8;
+  }
+  .article-header { padding: 20px 0; }
+  .article-title {
+   font-size: 25px;
+   font-weight: 500;
+   padding-bottom: 10px;
+   color: #00A500
+  }  #wrap{
+    position: relative;
+    width:120%;
+    height:800px;
+    border:1px solid #ccc;
+  }
+  #wrap{
+    position: relative;
+    width:120%;
+    height:800px;
+  }
+ </style>
+
+ <!-- 천식뉴스 폰트와 글씨 -->
+ <style>
+ .num1>input value{
+    color: #6C6C6C;
+ }
+  .aside-list { padding: 10px 0 30px 0; }
+  .aside-list > h3 {
+   font-size: 15px;
+   font-weight: 600;
+  }
+  .aside-list li a {
+   margin-left: 8px;
+   font-weight: 13px;
+   color: #6C6C6C;
+  }
+ </style>
+</head>
+<body>
+
+ <div id="page-wrapper">
+  <header id="main-header">
+   <hgruop >
+       <div class = "korea-img">
+       <img src="../static/css/img/koreamap.png">
+       </div>
+   </hgruop>
+  </header>
+  <nav id="main-navigation">
+  </nav>
+  <div id="content">
+   <section id="main-section">
+    <article>
+     <div class="article-header">
+         <h1 class="article-title">전국 지도</h1>
+         <img src="../static/css/img/aaa.png">
+
+<div id="svgMap">
+    <span class ="num1">
+        <input type="submit" title ="강원도" value="강원도" id="crd1" for={{resultData.강원도}}>
+        <input type="submit" title="경북" value="경북" id="crd2" for ={{resultData.경북}}>
+        <input type="submit" title="경기도" value="경기도" id="crd3"  for ={{resultData.경기도}}>
+        <input type="submit" title="서울" value="서울" id="crd4"  for ={{resultData.서울}}>
+        <input type="submit" title="인천" value="인천" id="crd5"  for ={{resultData.인천}}>
+        <input type="submit" title="충북" value="충북" id="crd6"  for ={{resultData.충북}}>
+        <input type="submit" title="충남" value="충남" id="crd7"  for ={{resultData.충남}}>
+        <input type="submit" title="대전" value="대전" id="crd8"  for ={{resultData.대전}}>
+        <input type="submit" title="전북" value="전북" id="crd9"  for ={{resultData.전북}}>
+        <input type="submit" title="광주" value="광주" id="crd10"  for ={{resultData.광주}}>
+        <input type="submit" title="전남" value="전남" id="crd11"  for ={{resultData.전남}}>
+        <input type="submit" title="대구" value="대구" id="crd12"  for ={{resultData.대구}}>
+        <input type="submit" title="울산" value="울산" id="crd13"  for ={{resultData.울산}}>
+        <input type="submit" title="경남" value="경남" id="crd14"  for ={{resultData.경남}}>
+        <input type="submit" title="부산" value="부산" id="crd15"  for ={{resultData.부산}}>
+        <input type="submit" title="제주도" value="제주도" id="crd16" for ={{resultData.제주}}>
+    </span>
+</div>
+
+
+
+
+     <div class="article-body">
+    </article>
+   </section>
+    <aside id="main-aside">
+     <div class="aside-list">
+      <h3>천식 Best NEWS</h3>
+      <ul>
+       <li><a href={{today_news[0].href}} target="_blank">• {{today_news[0].title}}</a><br> <a>{{today_news[0].today}}</a></li>
+       <li><a href={{today_news[1].href}} target="_blank">• {{today_news[1].title}}</a><br> <a>{{today_news[1].today}}</a></li>
+       <li><a href={{today_news[2].href}} target="_blank">• {{today_news[2].title}}</a><br> <a>{{today_news[2].today}}</a></li>
+       <li><a href={{today_news[3].href}} target="_blank">• {{today_news[3].title}}</a><br> <a>{{today_news[3].today}}</a></li>
+       <li><a href={{today_news[4].href}} target="_blank">• {{today_news[4].title}}</a><br> <a>{{today_news[4].today}}</a></li>
+      </ul>
+     </div>
+     <div class="aside-list">
+      <h3>천식 NEWS</h3>
+      <ul>
+       <li><a href=>• 1</a></li>
+       <li><a href=>• 2</a></li>
+       <li><a href=>• 3</a></li>
+       <li><a href=>• 4</a></li>
+       <li><a href=>• 5</a></li>
+      </ul>
+     </div>
+    </aside>
+   </div>
+   </footer>
+  </div>
+ </body>
+</html>
