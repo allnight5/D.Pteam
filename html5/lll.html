@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <div class="header_1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-cache"/>
+  <meta http-equiv="Expires" content="0"/>
+  <meta http-equiv="Pragma" content="no-cache"/>
+
+ <title>HTML5 Basic Page</title>
+ <script language="javascript">
+function showPopup() { window.open("popup.html", "a", "width=600, height=300, left=600, top=300"); }
+</script>
+
+<script language="javascript">
+function showstar() { window.open("star.html", "b", "width=700, height=300, left=600, top=300"); }
+</script>
+
+
+<!--전체 글씨 틀 설정 -->
+ <style>
+  *{
+    margin: 0; padding: 0;
+    font-family: '맑은 고딕', 'Malgun Gothic', Gothic, sans-serif;
+   }
+  a { text-decoration: none; }
+  li { list-style: none; }
+ </style>
+
+ <!--흰색 배경화면 -->
+
+
+
+<!--분홍색 타이틀 만들기 -->
+ <style>
+
+  #main-header { padding: 40px 50px;
+               background: pink;
+                background-size: 100% 100%;}
+  .master-title {
+   font-size: 30px;
+   color: #FFFFFF;
+  }
+  .master-title a {
+   color : #FFFFFF;
+  }
+ </style>
+
+ <!--아래 줄하나 -->
+ <style>
+  #main-navigation {
+   border-bottom: 1px solid #C8C8C8;
+   height: 15px;
+  }
+ </style>
+
+ <!-- 파싱 뉴스 내용 넣을려고 만들었다 -->
+ <style>
+  #content { overflow: hidden; }
+  #main-section {
+   float: left;
+   width: 710px;
+  }
+  #main-aside {
+   float: right;
+   width: 200px;
+  }
+ </style>
+
+ <style>
+  article {
+   padding: 0 10px 20px 10px;
+   border-bottom: 1px solid  #C8C8C8;
+  }
+  .article-header { padding: 20px 0; }
+  .article-title {
+   font-size: 25px;
+   font-weight: 500;
+   padding-bottom: 10px;
+   color: #00A500
+  }
+ </style>
+
+ <!-- 천식뉴스 폰트와 글씨 -->
+ <style>
+  .aside-list { padding: 10px 0 30px 0; }
+  .aside-list > h3 {
+   font-size: 15px;
+   font-weight: 600;
+  }
+  .aside-list li a {
+   margin-left: 8px;
+   font-weight: 13px;
+   color: #6C6C6C;
+  }
+ </style>
+<style>
+ #container {  /* 전체 콘텐츠를 감싸는 div */
+   width:613px;  /* 너비 */
+   margin:0 auto;  /* 가로로 중앙에 배치 */
+   /* 테두리와 내용 사이의 패딩 여백 */
+ }
+ </style>
+</head>
+<body>
+
+
+  <header id="main-header">
+   <hgruop>
+    <h1 class="master-title">전국 시도별 천식 위험지수 알림 서비스</h1>
+   </hgruop>
+  </header>
+  <nav id="main-navigation">
+  </nav>
+  <div id="content">
+   <section id="main-section">
+    <article>
+     <div class="article-header">
+       <style>
+
+  #fx{
+    position: fixed;
+
+
+  }
+
+  .num1>input[for='1']{position:absolute;width: 50px; height:47px;background:url(lv1.png); border-radius : 100%}
+  .num1>input[for='2']{position:absolute;width: 50px; height:44px;background:url(lv2.png); border-radius : 100%}
+  .num1>input[for='3']{position:absolute;width: 50px; height:48px;background:url(lv3.png); border-radius : 100%}
+  .num1>input[for='4']{position:absolute;width: 50px; height:47px;background:url(lv4.png); border-radius : 100%}
+
+   #fx1{top:350px;left:950px; }
+  #fx2{top:550px;left:1000px; }
+  #fx3{top:400px;left:790px; }
+  #fx4{top:350px;left:750px; }
+  #fx5{top:360px;left:690px; }
+  #fx6{top:470px;left:850px; }
+  #fx7{top:540px;left:740px; }
+  #fx8{top:565px;left:815px; }
+  #fx9{top:685px;left:780px; }
+  #fx10{top:780px;left:730px; }
+  #fx11{top:810px;left:790px; }
+  #fx12{top:655px;left:975px; }
+  #fx13{top:705px;left:1070px; }
+  #fx14{top:735px;left:950px; }
+  #fx15{top:760px;left:1060px; }
+  #fx16{top:915px;left:1060px; }
+
+
+
+</style>
+
+<span class ="num1">
+  <input type="button" title="강원도" value="강원도" id="fx1" for=4  onclick="showPopup();" / >
+  <input type="button" title="경북" value="경북" id="fx2" for =3  onclick="showPopup();" />
+    <input type="button" title="경기도" value="경기도" id="fx3"  for =3  onclick="showPopup();" />
+    <input type="button" title="서울" value="서울" id="fx4"  for =2  onclick="showPopup();" />
+    <input type="button" title="인천" value="인천" id="fx5"  for =3  onclick="showPopup();" />
+    <input type="button" title="충북" value="충북" id="fx6"  for =3  onclick="showPopup();" />
+    <input type="button" title="충남" value="충남" id="fx7"  for =3  onclick="showPopup();" />
+    <input type="button" title="대전" value="대전" id="fx8"  for =3  onclick="showPopup();" />
+    <input type="button" title="전북" value="전북" id="fx9"  for =3  onclick="showPopup();" />
+    <input type="button" title="광주" value="광주" id="fx10"  for =3  onclick="showPopup();" />
+    <input type="button" title="전남" value="전남" id="fx11"  for =3  onclick="showPopup();" />
+    <input type="button" title="대구" value="대구" id="fx12"  for =3  onclick="showPopup();" />
+    <input type="button" title="울산" value="울산" id="fx13"  for =3  onclick="showPopup();" />
+    <input type="button" title="경남" value="경남" id="fx14"  for =3  onclick="showPopup();" />
+    <input type="button" title="부산" value="부산" id="fx15"  for =3  onclick="showPopup();" />
+    <input type="button" title="제주도" value="제주도" id="fx16" for =3  onclick="showPopup();" />
+</span>
+</div>
+
+     </div>
+
+     <div class="article-body">
+    </article>
+   </section>
+    <aside id="main-aside">
+     <div class="aside-list">
+      <h3>천식 NEWS</h3>
+
+      <ul>
+       <li><a href=>• 1</a></li>
+       <li><a href=https://www.naver.com target="_blank" onclick="parent.location.href='star.html'">• 2</a></li>
+       <li><a href="">• 3</a></li>
+       <li><a href="">• 4</a></li>
+       <li><a href="">• 5</a></li>
+      </ul>
+    </div>
+    </aside>
+   </div>
+   </footer>
+  </div>
+  <div id="container">
+    <img src="aaa.png" >
+  </div>
+ </body>
+
+</html>
