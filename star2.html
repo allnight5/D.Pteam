@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+<title>CodePen - CSS: Radio Input Stars</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<style>
+      #star-1:checked ~ section [for='star-1'] svg, #star-2:checked ~ section [for='star-1'] svg, #star-2:checked ~ section [for='star-2'] svg, #star-3:checked ~ section [for='star-1'] svg, #star-3:checked ~ section [for='star-2'] svg, #star-3:checked ~ section [for='star-3'] svg, #star-4:checked ~ section [for='star-1'] svg, #star-4:checked ~ section [for='star-2'] svg, #star-4:checked ~ section [for='star-3'] svg, #star-4:checked ~ section [for='star-4'] svg, #star-5:checked ~ section [for='star-1'] svg, #star-5:checked ~ section [for='star-2'] svg, #star-5:checked ~ section [for='star-3'] svg, #star-5:checked ~ section [for='star-4'] svg, #star-5:checked ~ section [for='star-5'] svg {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+#star-1:checked ~ section [for='star-1'] svg path, #star-2:checked ~ section [for='star-1'] svg path, #star-2:checked ~ section [for='star-2'] svg path, #star-3:checked ~ section [for='star-1'] svg path, #star-3:checked ~ section [for='star-2'] svg path, #star-3:checked ~ section [for='star-3'] svg path, #star-4:checked ~ section [for='star-1'] svg path, #star-4:checked ~ section [for='star-2'] svg path, #star-4:checked ~ section [for='star-3'] svg path, #star-4:checked ~ section [for='star-4'] svg path, #star-5:checked ~ section [for='star-1'] svg path, #star-5:checked ~ section [for='star-2'] svg path, #star-5:checked ~ section [for='star-3'] svg path, #star-5:checked ~ section [for='star-4'] svg path, #star-5:checked ~ section [for='star-5'] svg path {
+  fill: #FFBB00;
+  stroke: #cc9600;
+}
+
+section {
+  width: 300px;
+  text-align: center;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+}
+
+label {
+  display: inline-block;
+  width: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+label svg {
+  width: 100%;
+  height: auto;
+  fill: white;
+  stroke: #CCC;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  transition: -webkit-transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+}
+label svg path {
+  transition: fill 200ms ease-in-out, stroke 100ms ease-in-out;
+}
+
+label[for="star-null"] {
+  display: block;
+  width: 100%;
+  margin: auto;
+  font-size: 20px;
+  font-family: '한컴 윤고딕 240';
+  color: #23293e;
+}
+
+body {
+  text-align: center;
+  background: #81b3b7;
+}
+
+input {
+  margin-top: 3rem;
+}
+    </style>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+</head>
+<body>
+<div class="star">
+  <form action="star.php" method="POST">
+        <input type="radio" name="stars" id="star-null"value="0">
+        <input type="radio" name="stars" id="star-1"value="1">
+        <input type="radio" name="stars" id="star-2"value="2">
+        <input type="radio" name="stars" id="star-3"value="3">
+        <input type="radio" name="stars" id="star-4"value="4">
+        <input type="radio" name="stars" id="star-5"value="5">
+        <section>
+        <label for="star-1">
+        <svg width="255" height="240" viewBox="0 0 51 48">
+        <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"></path>
+        </svg>
+        </label>
+        <label for="star-2">
+        <svg width="255" height="240" viewBox="0 0 51 48">
+        <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"></path>
+        </svg>
+        </label>
+        <label for="star-3">
+        <svg width="255" height="240" viewBox="0 0 51 48">
+        <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"></path>
+        </svg>
+        </label>
+        <label for="star-4">
+        <svg width="255" height="240" viewBox="0 0 51 48">
+        <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"></path>
+        </svg>
+        </label>
+        <label for="star-5">
+        <svg width="255" height="240" viewBox="0 0 51 48">
+        <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"></path>
+        </svg>
+        </label>
+        <label for="star-null">
+        초기화
+        </label>
+        </section>
+        <script src="https://static.codepen.io/assets/editor/live/css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js"></script>
+        <p><input type="text" name="title" placeholder="name">
+           <input type="submit"></p>
+  </form>
+</body>
+</html>
