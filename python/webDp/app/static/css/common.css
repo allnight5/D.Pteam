@@ -1,0 +1,46 @@
+  #wrap{
+    position: relative;
+    width:120%;
+    height:800px;
+    border:1px solid #ccc;
+  }
+  #wrap{
+    position: relative;
+    width:120%;
+    height:800px;
+  ;
+  }
+  /*
+  num1 라는 내용을 가진 class안에
+  input의 형태에서 for 내용을 1일때 common.css파일이 있는 위치에서 img파일로 들어가서 있는 lv1.png를 읽어옴
+  만약 common 파일 폴더 바로 전 폴더에 있다면 ../lv1.png 의 형태로 해주면 됩니다.
+  background:url(img/lv1.png)
+  for로 왜 4개를 했느냐 위험지수 4단계 를 나타내기 위해서 사용했다.
+
+  */
+  .num1>input[for='1']{position:absolute;width: 50px; height:47px;background:url(img/lv1.png); border-radius : 100%}
+  .num1>input[for='2']{position:absolute;width: 50px; height:44px;background:url(img/lv2.png); border-radius : 100%}
+  .num1>input[for='3']{position:absolute;width: 50px; height:48px;background:url(img/lv3.png); border-radius : 100%}
+  .num1>input[for='4']{position:absolute;width: 50px; height:47px;background:url(img/lv4.png); border-radius : 100%}
+
+  /*
+  #crd1 의 경우는
+  crd1이라는 내용의 id를 가진 html의 내용을 꾸며주는 것으로
+  crd1의 id가진 곳의 위치를 top(위)쪽에서 px만큼 떨어지게 left(왼쪽)에서 px만큼 떨어지게해서 위치를 지정해줍니다.
+  */
+   #crd1{top:420px;left:340px;}
+  #crd2{top:620px;left:420px; }
+  #crd3{top:475px;left:200px; }
+  #crd4{top:420px;left:160px; }
+  #crd5{top:440px;left:100px; }
+  #crd6{top:560px;left:260px; }
+  #crd7{top:600px;left:160px; }
+  #crd8{top:650px;left:220px; }
+  #crd9{top:760px;left:200px; }
+  #crd10{top:840px;left:140px; }
+  #crd11{top:860px;left:200px; }
+  #crd12{top:730px;left:380px; }
+  #crd13{top:775px;left:480px; }
+  #crd14{top:800px;left:350px; }
+  #crd15{top:830px;left:470px; }
+  #crd16{top:990px;left:460px; }
