@@ -159,9 +159,11 @@ def insert_news(newsinsert, check):
             #today라는 DB에 입력하겠다.
             #today_news에 갯수가 몇개인지 세는 sql문
             sql = "select MAX(id) from today_news"
+
             #into today_news(id, today, href, today) today_news라는 테이블의 id와 today등 이런 칼럼 들에
             #values(%s, %s,%s, %s) 이 DB에 데이터를 4개를 넣어주겠다.
-            sql1 = 'insert into today_news(today, href, title, temp) values(%s, %s, %s, %s)'
+            sql1 = 'insert into today_news(id, today, href, title, temp) values(%s, %s, %s, %s, %s)'
+
             #오름차순으로 읽어오는 sql문
             sql2 = 'select*from today_news order by today desc'
             curs.execute("set names utf8")
@@ -175,24 +177,48 @@ def insert_news(newsinsert, check):
             check_num = [0 for rows in range(10)]  #넣을 번호째를 담을 배열을 생성
             for i in range(0, 10):
                 over =0
-                for k in range(0, 20):
-                    if check_news[k][3] == newsinsert[i][2]:
-                        over = over+1  #같은게 있다면 카운트 한다.
+                #10개 이상이라면 id의 갯수만큼 하는데
+                if number2 > 10:
+                    #20개가 가장 최대로 20개 이상이라면 상위 20개만 중복 검사 후 추가합니다.
+                    if number2 >= 20:
+                        for k in range(0, 20):
+                            if check_news[k][3] == newsinsert[i][2]:
+                                over = over+1  #같은게 있다면 카운트 한다.
 
-                    if over >0 :
-                        break; #같은게 있다면 종료시킨다.
+                            if over >0 :
+                                break; #같은게 있다면 종료시킨다.
+
+                    #10개 이상이면서 20개 미만 이라면 id의 값만큼 중복 검사를 합니다.
+                    else :
+                        for k in range(0, number2):
+                            if check_news[k][3] == newsinsert[i][2]:
+                                over = over+1  #같은게 있다면 카운트 한다.
+
+                            if over >0 :
+                                break; #같은게 있다면 종료시킨다.
+                else :
+                    #10개 를 넣기 때문에 범위는 0부터 10개를 넣는다..
+                    for k in range(0, 10):
+                        if check_news[k][3] == newsinsert[i][2]:
+                            over = over+1  #같은게 있다면 카운트 한다.
+
+                        if over >0 :
+                            break; #같은게 있다면 종료시킨다.
 
                 #같은게 없다면 추가를 위해서 1을 추가하고 배열에 번호를 넣어줍니다.
                 if over == 0 :
+                    #배열에 넣을 id 번호를 추가
                     check_num[in_date_count] = i
-                    in_date_count = in_date_count +1
+                    #
+                    in_date_count = in_date_count + 1
 
             j=0
             if in_date_count> 0:
+                #최종 값부터 입력을 시작하며 중복이 아닌 갯수만큼만 추가합니다.
                 for i in range(number2, number2+in_date_count):
                    #if check == 0:
                    #실행한다 차례대로 id, today(오늘날짜), 링크, 타이틀, 는 %s에 들어갈 내용들이다.
-                   curs.execute(sql1, (newsinsert[check_num[j]][0], newsinsert[check_num[j]][1], newsinsert[check_num[j]][2], 0))
+                   curs.execute(sql1, (i, newsinsert[check_num[j]][0], newsinsert[check_num[j]][1], newsinsert[check_num[j]][2], 0))
                    j= j+1
 
         #삽입 내용을 확정시킨다.
@@ -258,39 +284,47 @@ def random_news():
     try:
         #curs에 conn.cursor()의 기능을 줌
         with conn.cursor() as curs:
+            #테이블안에 모든 내용 삭제 sql문
+            delsql = 'delete from view_news'
+            curs.execute(delsql)
             #sql이라는 변수에 아래 데이터
             #today_news에 갯수가 몇개인지 세는 sql문
-            sql = "select MAX(id) from view_news"
+            sql = "select MAX(id) from today_news"
             #into today_news(today, href, today) today_news라는 테이블의 today와 href 등 이런 칼럼 들에
             #values(%s, %s,%s) 이 DB에 데이터를 3개를 넣어주겠다.
-            sql1 = 'insert into view_news(today, href, title) values(%s, %s, %s)'
+            sql1 = 'insert into view_news(id, today, href, title) values(%s,%s, %s, %s)'
             #sql에서 뉴스가 들어있는 테이블을 읽어오는 쿼리문(질의문) 입니다.
             sql2 = 'select*from today_news order by id asc'
             curs.execute("set names utf8")
             curs.execute(sql)
             #전부 읽어들입니다.
-            number1 = curs.fetchall()
-            number1 = list(number1[0])
+            Maxnum = curs.fetchall()
+            Maxnum = list(Maxnum[0])
             #최대 값에서 1을 더해줘야 최대값이 포함되기에 더하기 1을 해줍니다.
-            number2 = number1[0]+1
+            Maxnumber = Maxnum[0]+1
             #이제 데이터를 0부터 순서대로 전부 읽어서 news_date변수에 넣습니다.
             curs.execute(sql2)
             news_date = curs.fetchall()
-
             #카운트를 위한 변수 j를 만듭니다.
             j=0
+            rand = [0 for rows in range(10)]
+            for i in range(0, 10):
+                rand[i]= random.choice(range(Maxnumber))
+                for j in range(0, 10):
+                    if rand[i] == rand[j]:
+                        i = i - 1
             #10개의 뉴스를 넣을것이니 범위는 0부터 10까지 합니다.
             for i in range(0, 10):
                 #랜덤 함수를 사용하며 범위에는 위에서 구한 최대값으로 설정합니다.
-                rand = random.choice(range(number2))
                 #랜덤에 따른 뉴스들의 위치를 테이블에 넣어줍니다.
                 #실행한다 차례대로 today(오늘날짜), 링크, 타이틀, 들을 %s에 들어갈 내용들이다.
-                curs.execute(sql1, (news_date[rand][1], news_date[rand][2], news_date[rand][3]))
+                curs.execute(sql1, (news_date[rand[i]][0], news_date[rand[i]][1], news_date[rand[i]][2], news_date[rand[i]][3]))
                 j= j+1
 
         #삽입 내용을 확정시킨다.
         #안하면 저장이 안된다.
         conn.commit()
+        print("Best 입력완료")
     finally:
         #연결을 종료한다.
         conn.close()
@@ -316,6 +350,7 @@ def allstart():
 
 #실행하는 함수
 if __name__ == "__main__":
+
     #apscheduler에서 BackgroundScheduler를 sched에 담는다.
     sched = BackgroundScheduler()
     #BackgroundScheduler()를 실행히시킨다.
@@ -329,7 +364,7 @@ if __name__ == "__main__":
     #테이블에 한주간 보여줄 뉴스를 넣어줍니다.
     #day_of_week는 0이 mon부터 시작하여 tue,wed로 6까지 작성란입니다
     #hour은 시간으로 0~24, minute은 분으로 0~59, second는 초로 0~59가 가능합니다.
-    sched.add_job(random_news, 'cron', day_of_week="0", hour="1", minute="5", second='00', id="News")
+    sched.add_job(random_news, 'cron', day_of_week="3", hour="10", minute="6", second='00', id="News")
 
     #멈추지 않고 계속 돌아가기 위해서 필요한 반복문 입니다.
     #sleep안에 sleep한계 안의 숫자를 입력하시면 돌아가시는데 문제는 없습니다.
@@ -337,3 +372,9 @@ if __name__ == "__main__":
     while True:
         print(times.today().strftime("%H:%M:%S"))
         time.sleep(5)
+
+    #실행이 waring이 뜨는데 저것은 utf8의 utf8MB3 버전이 UTF8MB4로 바뀌니 주의하라는 경고문입니다.
+    #utf8이란 유니코드의 속해져 있는 인코딩 방법중 하나입니다.
+    #유니코드란 컴퓨터에서 다양한 문자를 모아놓고 순서대로 번호를 붙여서 컴퓨터에서 그 글자를 인식하여(코드포인트)
+    #보여줄수 있도록 해주는 코드입니다.
+    #코드 포인트란 유니코드에서 그 문자나 숫자 그림을 찾기위해서 붙여둔 번호입니다.
